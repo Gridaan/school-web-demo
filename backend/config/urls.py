@@ -30,7 +30,7 @@ router.register(r'tasks', TaskViewSet, basename='task')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/auth/login/', login_view, name='login'),
+    path('api/auth/', include('accounts.urls')),
     path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api-auth/', include('rest_framework.urls')),
 ]
