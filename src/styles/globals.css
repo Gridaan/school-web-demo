@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+/* ── CSS Custom Properties ── */
+:root {
+  --color-navy:       #0d1f3c;
+  --color-navy-mid:   #1a3260;
+  --color-navy-light: #243b6e;
+  --color-gold:       #c9a84c;
+  --color-gold-light: #e8cc8a;
+  --color-gold-dim:   rgba(201, 168, 76, 0.2);
+  --color-cream:      #faf7f2;
+  --color-cream-dark: #f3ede4;
+  --color-text:       #1a1a2e;
+  --color-muted:      #5a6070;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Crimson Pro', Georgia, serif;
+  --font-ui:      'DM Sans', system-ui, sans-serif;
+}
+
+/* ── Base Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography Utilities ── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.font-ui      { font-family: var(--font-ui); }
+
+/* ── Gold Decorative Rule ── */
+.gold-rule {
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+
+/* ── Section Eyebrow Label ── */
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;        /* 11px */
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ── Animated fade-up on mount ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.65s ease both;
+}
+
+.animate-fade-up-delay-1 { animation-delay: 0.1s; }
+.animate-fade-up-delay-2 { animation-delay: 0.2s; }
+.animate-fade-up-delay-3 { animation-delay: 0.3s; }
+.animate-fade-up-delay-4 { animation-delay: 0.45s; }
+
+/* ── Pullquote left border ── */
+.blockquote-gold {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.5rem;
+}
+
+/* ── Decorative circle used on hero ── */
+.deco-circle {
+  border: 1px solid var(--color-gold-dim);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ── Thin 0.5px border utility ── */
+.border-hairline {
+  border: 0.5px solid rgba(10, 30, 60, 0.1);
+}
+
+/* ── Signature italic style ── */
+.signature-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.75rem;
+  color: var(--color-navy);
+  line-height: 1.3;
+}
+:root {
+  --color-white: #ffffff;
+  --color-text-dark: #2a2a3a;
+}
