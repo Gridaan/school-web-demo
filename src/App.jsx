@@ -38,7 +38,7 @@ export default function App() {
     <BrowserRouter>
       <div className="min-h-screen bg-[var(--color-cream-dark)]">
         <Navbar />
-        <div className="max-w-3xl mx-auto shadow-lg">
+        <div className="max-w-4xl mx-auto shadow-lg">
           <Routes>
             <Route path="/" element={<MissionPage />} />
             <Route path="/mission" element={<MissionPage />} />
