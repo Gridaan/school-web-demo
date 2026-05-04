@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .serializers import RegisterSerializer
+from .models import UserProfile
+from students.models import Student
 
 
 @api_view(['POST'])
@@ -32,12 +34,21 @@ def login_view(request):
             {'error': 'Invalid credentials'},
             status=status.HTTP_401_UNAUTHORIZED
         )
+    
+    try:
+        profile = UserProfile.objects.get(user=user)
+        role = profile.role
+    except UserProfile.DoesNotExist:
+        role = None  # fallback (shouldn't happen if register flow is correct)
 
-    if not user.is_staff:
-        return Response(
-            {'error': 'Only admin users can login'},
-            status=status.HTTP_403_FORBIDDEN
-        )
+    # ✅ Get student_id if role is student
+    student_id = None
+    if role == 'student':
+        try:
+            student = Student.objects.get(user=user)
+            student_id = student.id
+        except Student.DoesNotExist:
+            student_id = None  # fallback safety
 
     refresh = RefreshToken.for_user(user)
     return Response({
@@ -47,7 +58,8 @@ def login_view(request):
             'id': user.id,
             'username': user.username,
             'email': user.email,
-            'is_staff': user.is_staff
+            'role': role,
+            "student_id": student_id
         }
     }, status=status.HTTP_200_OK)
 

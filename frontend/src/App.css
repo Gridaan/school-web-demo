@@ -184,3 +184,25 @@ h2 {
   background-color: #616161;
   box-shadow: 0 2px 4px rgba(97, 97, 97, 0.3);
 }
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.welcome-text {
+  margin: 0 0 5px 0;
+  color: #666;
+}

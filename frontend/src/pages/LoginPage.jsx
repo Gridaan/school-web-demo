@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import './LoginPage.css'
 
@@ -68,6 +68,12 @@ export const LoginPage = () => {
           <button type="submit" disabled={loading} className="login-button">
             {loading ? 'Logging in...' : 'Login'}
           </button>
+
+          <div className="register-link">
+            <p>
+              New user? <Link to="/register">Register here</Link>
+            </p>
+          </div>
         </form>
       </div>
     </div>

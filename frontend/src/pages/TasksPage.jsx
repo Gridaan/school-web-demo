@@ -56,16 +56,23 @@ export const TasksPage = () => {
 
   return (
     <div className="container">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <button
-          onClick={() => navigate('/students')}
-          className="btn btn-edit"
-        >
-          ← Back to Students
-        </button>
-        <button onClick={handleLogout} className="btn btn-secondary">
-          Logout
-        </button>
+      <div className="header-container">
+        <div className="header-left">
+          {user?.role === 'teacher' && (
+            <button
+              onClick={() => navigate('/students')}
+              className="btn btn-edit"
+            >
+              ← Back to Students
+            </button>
+          )}
+        </div>
+
+        <div className="header-right">
+          <button onClick={handleLogout} className="btn btn-secondary">
+            Logout
+          </button>
+        </div>
       </div>
 
       {user && <p style={{ margin: '5px 0', color: '#666', textAlign: 'right' }}>Welcome, {user.username}</p>}
