@@ -15,6 +15,7 @@ class RegisterSerializer(serializers.Serializer):
 
     class_name = serializers.CharField(required=False)
     age = serializers.IntegerField(required=False)
+    phone = serializers.CharField(required=False, allow_blank=True)
 
     def create(self, validated_data):
         role = validated_data['role']
@@ -58,7 +59,8 @@ class RegisterSerializer(serializers.Serializer):
                     name=full_name,
                     class_name=validated_data.get('class_name', ''),
                     age=validated_data.get('age', 0),
-                    email=email
+                    email=email,
+                    phone=validated_data.get('phone', '')
                 )
 
         return user
