@@ -10,7 +10,7 @@ import PageFooterTag  from "../shared/PageFooterTag";
 export default function PrincipalPage() {
   return (
     <main className="bg-[var(--color-cream)] min-h-screen">
-      <TopBar currentPage="Principal's Message" />
+      
       <PrincipalIntro />
       <MessageBody />
       <PillarStrip />
